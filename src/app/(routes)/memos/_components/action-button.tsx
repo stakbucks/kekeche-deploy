@@ -1,10 +1,13 @@
 'use client';
 
-import { Popover, PopoverTrigger, PopoverContent } from '@radix-ui/react-popover';
-import { PencilIcon, TrashIcon } from 'lucide-react';
 import MeatballIcon from '@/assets/icons/meatball_20x20.svg';
+import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover';
+import { PencilIcon, TrashIcon } from 'lucide-react';
 
-export default function ActionButton() {
+export default function ActionButton({ onClick }: { onClick: () => void }) {
+    const handleClick = () => {
+        alert('개발 중');
+    };
     return (
         <Popover modal>
             <PopoverTrigger className="p-3">
@@ -20,7 +23,7 @@ export default function ActionButton() {
                     </li>
                     <div className="mx-[-12px] my-1 h-[1px] bg-gray-200" />
                     <li>
-                        <button className="flex items-center gap-1">
+                        <button onClick={onClick} className="flex items-center gap-1">
                             <TrashIcon stroke="#F04141" />
                             <span className="text-semibold16 text-[#F04141]">기록 삭제</span>
                         </button>
