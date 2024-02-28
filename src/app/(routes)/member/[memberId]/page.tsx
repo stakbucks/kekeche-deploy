@@ -2,7 +2,6 @@ import EggImage from '@/assets/images/egg.png';
 import PencilImage from '@/assets/images/pencil.png';
 import { PageContainer } from '@/components/ui';
 import A2HS from '@/hooks/useA2HS';
-import getMember from '@/services/auth/getMember';
 import getCharacters from '@/services/character/getCharacters';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
