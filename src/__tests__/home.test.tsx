@@ -4,24 +4,11 @@ import { screen } from '@testing-library/react';
 import { redirect } from 'next/navigation';
 import { IsLoggedIn, checkIsLoggedIn } from '@/services/auth/getMember';
 
-vi.mock('next/headers', async () => {
-    return {
-        cookies: () => {
-            return {
-                get: (name: string) => {
-                    return {
-                        value: 'cookie',
-                    };
-                },
-            };
-        },
-    };
-});
 vi.mock('@/services/auth/getMember');
 
 describe('홈 페이지 테스트', () => {
     it('로그인 안했을 때 홈 페이지를 렌더링 합니다.', async () => {
-        vi.mocked(checkIsLoggedIn).mockReturnValue(Promise.resolve({ isLoggedIn: true }));
+        vi.mocked(checkIsLoggedIn).mockReturnValue(Promise.resolve({ isLoggedIn: false }));
         render(await Home());
         const button = screen.getByText('로그인하기');
 
